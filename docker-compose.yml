@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  tms-backend:
+    build: .
+    container_name: tms-backend
+    ports:
+      - "8081:8081"
+    volumes:
+      - tms_volume:/app/data   # persistent storage (safe choice even if you don't use it yet)
+    environment:
+      JAVA_OPTS: ""
+    restart: always
+
+volumes:
+  tms_volume:
